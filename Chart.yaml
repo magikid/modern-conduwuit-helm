@@ -1,18 +1,16 @@
 apiVersion: v1
 appVersion: v1.4.1
-description: a very cool, featureful fork of Conduwuit
-name: tuwunel
-version: 0.2.0
+description: A modern and maintained fork of conduwuit
+name: conduwuit
+version: 1.0.0
 keywords:
   - tuwunel
   - matrix
   - homeserver
-home: https://github.com/AreYouLoco/tuwunel-helm
+home: https://github.com/magikid/modern-conduwuit-helm
 sources:
+  - https://gitlab.cronce.io/charts/conduwuit
   - https://github.com/AreYouLoco/tuwunel-helm
-  - https://github.com/matrix-construct/tuwunel
 maintainers:
-  - name: AreYouLoco?
-    email: areyouloco@paranoici.org
   - name: magikid
     email: chris@mystic.horse
