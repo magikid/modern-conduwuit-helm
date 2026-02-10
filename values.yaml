@@ -18,17 +18,17 @@ config:
     registration_token: "supa-dupa-secret-token"
     allow_federation: "false"
     trusted_servers: []
-  global.tls: {}
-  global.well_known: {}
-  ## If you are delegating your apex domain, uncomment the client and server lines
-  ## and replace the domains with the domain your service is running on
-  #  client: "https://matrix.example.com"
-  #  server: "matrix.example.com:443"
-  global.blurhashing: {}
-  global.ldap: {}
-  global.antispam: {}
-  global.antispam.meowlnir: {}
-  global.antispam.draupnir: {}
+    tls: {}
+    well_known: {}
+    ## If you are delegating your apex domain, uncomment the client and server lines
+    ## and replace the domains with the domain your service is running on
+    #  client: "https://matrix.example.com"
+    #  server: "matrix.example.com:443"
+    blurhashing: {}
+    ldap: {}
+    antispam:
+      meowlnir: {}
+      draupnir: {}
 
 
 extraEnv: []
