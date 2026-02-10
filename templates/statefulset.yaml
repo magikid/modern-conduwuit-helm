@@ -59,34 +59,12 @@ spec:
               value: "/data/db"
             - name: CONDUWUIT_PORT
               value: "80"
-            - name: CONDUWUIT_MAX_REQUEST_SIZE
-              value: {{ .Values.config.max_request_size | quote }}
-            {{- if .Values.config.allow_registration }}
-            - name: CONDUWUIT_ALLOW_REGISTRATION
-              value: "true"
-            {{- end }}
-            {{- if .Values.config.allow_federation }}
-            - name: CONDUWUIT_ALLOW_FEDERATION
-              value: "true"
-            {{- end }}
-            {{- if .Values.config.registration_token }}
-            - name: TUWUNEL_REGISTRATION_TOKEN
-              value: {{ .Values.config.registration_token | quote }}
-            {{- end }}
-            - name: CONDUWUIT_TRUSTED_SERVERS
-              value: {{ mustToJson .Values.config.trusted_servers | quote }}
             - name: CONDUWUIT_ADDRESS
               value: "0.0.0.0"
             - name: CONDUWUIT_ROCKSDB_PARALLELISM_THREADS
               value: {{ $threads | quote }}
             - name: RUST_LOG
               value: info
-            {{- if .Values.config.delegatedDomain }}
-            - name: CONDUWUIT_WELL_KNOWN__CLIENT
-              value: "https://{{ .Values.config.delegatedDomain }}"
-            - name: CONDUWUIT_WELL_KNOWN__SERVER
-              value: "{{ .Values.config.delegatedDomain }}:443"
-            {{- end }}
             {{- range .Values.extraEnv }}
             - name: {{ .name | quote }}
               value: {{ .value | quote }}
