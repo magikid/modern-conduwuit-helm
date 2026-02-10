@@ -57,8 +57,6 @@ spec:
               value: {{ .Values.config.server_name | quote }}
             - name: CONDUWUIT_DATABASE_PATH
               value: "/data/db"
-            - name: CONDUWUIT_DATABASE_BACKEND
-              value: "rocksdb"
             - name: CONDUWUIT_PORT
               value: "80"
             - name: CONDUWUIT_MAX_REQUEST_SIZE
