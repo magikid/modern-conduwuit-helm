@@ -79,7 +79,7 @@ persistence:
     storageClass: ""
     accessMode: ReadWriteOnce
     # Your database and uploads will live here
-    size: 16Gi
+    size: 4Gi
 
 resources:
   requests:
