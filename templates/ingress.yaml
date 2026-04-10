@@ -34,7 +34,9 @@ spec:
   tls:
     - hosts:
         - {{ .Values.server_name }}
+      {{- if $delegatedDomain }}
         - {{ $delegatedDomain }}
+      {{- end }}
       {{- range .Values.ingress.extraHosts }}
         - {{ . }}
       {{- end }}
