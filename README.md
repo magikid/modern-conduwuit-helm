@@ -42,6 +42,7 @@ The following tables lists the configurable parameters of the tuwunel chart and 
 | `config.allow_federation`          | Whether or not to allow federating with other Matrix servers                                | `false`                            |
 | `config.trusted_servers`           | Servers to trust when federating; if enabling federating, `matrix.org` usually makes sense  | `[]`                               |
 | `config.delegatedDomain`           | Set the domain that you're delegating to. See [synapse delegate docs][delegate] for details |                                    |
+| `extraEnv`                         | Additional environment variables to set in the statefulSet                                  | `[]`                               |
 | `extraLabels`                      | Additional labels to apply to all created resources                                         | `{}`                               |
 | `service.annotations`              | Annotations for Service resource                                                            | `{}`                               |
 | `service.type`                     | Type of service to deploy                                                                   | `ClusterIP`                        |
