@@ -69,9 +69,8 @@ spec:
               value: {{ $threads | quote }}
             - name: RUST_LOG
               value: info
-            {{- range .Values.extraEnv }}
-            - name: {{ .name | quote }}
-              value: {{ .value | quote }}
+            {{- with .Values.extraEnv }}
+              {{- tpl (toYaml .) $ | nindent 12 }}
             {{- end }}
           readinessProbe:
             httpGet:
