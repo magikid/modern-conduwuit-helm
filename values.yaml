@@ -40,7 +40,7 @@ service:
   type: ClusterIP
   clusterIP: "None"
 
-  port: 80
+  port: 8008
   ## List of IP addresses at which the service is available
   ## Ref: https://kubernetes.io/docs/user-guide/services/#external-ips
   ##
@@ -93,3 +93,14 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# Additional securityContext
+podSecurityContext: {}
+# runAsNonRoot: true
+# seccompProfile:
+#   type: RuntimeDefault
+containerSecurityContext: {}
+# allowPrivilegeEscalation: false
+# capabilities:
+#   drop:
+#     - ALL
