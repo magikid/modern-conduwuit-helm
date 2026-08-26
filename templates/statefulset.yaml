@@ -31,27 +31,27 @@ spec:
       labels:
         {{- include "tuwunel.labels" . | nindent 8 }}
     spec:
+      {{- if .Values.podSecurityContext }}
       securityContext:
-        sysctls:
-          - name: net.ipv4.ip_unprivileged_port_start
-            value: "0"
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- end }}
       containers:
         - name: tuwunel
           image: "{{ .Values.image.repository }}:{{ tpl .Values.image.tag . }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 80
+              containerPort: 8008
           volumeMounts:
             - mountPath: /data
               name: data
               subPath: data
             - mountPath: /data/config
               name: config
+          {{- if .Values.containerSecurityContext }}
           securityContext:
-            capabilities:
-              add:
-                - NET_BIND_SERVICE
+            {{- toYaml .Values.containerSecurityContext | nindent 12 }}
+          {{- end }}            
           env:
             - name: TOKIO_WORKER_THREADS
               value: {{ $threads | quote }}
@@ -62,7 +62,7 @@ spec:
             - name: CONDUWUIT_DATABASE_PATH
               value: "/data/db"
             - name: CONDUWUIT_PORT
-              value: "80"
+              value: "8008"
             - name: CONDUWUIT_ADDRESS
               value: "0.0.0.0"
             - name: CONDUWUIT_ROCKSDB_PARALLELISM_THREADS
