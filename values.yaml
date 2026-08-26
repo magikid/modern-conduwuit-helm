@@ -94,7 +94,8 @@ tolerations: []
 
 affinity: {}
 
-# Additional securityContext
+## Add securityContext constraints to your Pod and Containers
+## The commented values are examples to comply with restricted:latest PSP
 podSecurityContext: {}
 # runAsNonRoot: true
 # seccompProfile:
